@@ -1,0 +1,94 @@
+{% extends "base_bootstrap.html" %}
+{% load app_tags %}
+{% load static %}
+{% block navbar %}
+<!doctype html>
+{% block scripts %}
+<script src="{% static 'js/sidebar-menu.js' %}"></script>
+{% endblock %}
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="base_menu">
+    <meta name="author" content="David Johns">
+  </head>
+  <body id="body-pd">
+      <header class="header" id="header">
+          <div class="header_toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+          </div>
+          <div class="navbar-logo">
+            <span class="nav-logo-name">WMS</span>
+          </div>
+          <div class="navbar-user">
+            <span class="navbar-user-email">{{ user.username }}</span>
+          </div>
+      </header>
+      <div class="l-navbar" id="nav-bar">
+          <nav class="nav">
+              <div>
+                <a href="/" class="left_nav_logo">
+                  <i class='bx bx-home nav_logo-icon'></i>
+                  <span class="left-nav-logo-name">Main Menu</span>
+                </a>
+                  <div class="nav_list">
+
+                    <a href="#" class="nav_link active">
+                      <i class='bx bx-grid-alt nav_icon'></i>
+                      <span class="nav_name">Dashboard</span>
+                    </a>
+
+                    <a href="{% url 'pack:process_order' %}" class="nav_link">
+                      <i class='bx bx-package nav_icon'></i>
+                      <span class="nav_name">Pack an order</span>
+                    </a>
+
+                    <a href="{% url 'process:process_order' %}" class="nav_link">
+                      <i class="fas fa-balance-scale-right"></i>
+                      <span class="nav_name">Process an order</span>
+                    </a>
+
+                    <a href="{% url 'verify:verify_product' %}" class="nav_link">
+                      <i class='bx bx-barcode-reader nav_icon'></i>
+                      <span class="nav_name">Verify Product</span>
+                    </a>
+
+                    <a href="#" class="nav_link">
+                      <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                      <span class="nav_name">Stats</span>
+                    </a>
+
+                    <a href="/api/" class="nav_link">
+                      <i class='bx bx-data nav_icon'></i>
+                      <span class="nav_name">Browser API</span>
+                    </a>
+
+                    <a href="{% url 'contact:contact_form' %}" class="nav_link">
+                      <i class='bx bx-message-square-detail nav_icon'></i>
+                      <span class="nav_name">Contact Us</span>
+                    </a>
+
+                    <a href="{% url 'todo:task_form' %}" class="nav_link">
+                      <i class='bx bx-task nav_icon'></i>
+                      <span class="nav_name">Task Master</span>
+                    </a>
+
+                    <a href="{% url 'login' %}" class="nav_link">
+                      <i class='bx bx-log-in nav_icon'></i>
+                      <span class="nav_name">Login</span>
+                    </a>
+
+                  </div>
+              </div>
+
+              <a href="{% url 'logout' %}" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Logout</span>
+              </a>
+
+          </nav>
+      </div>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "base_menu.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="app-content">
+    <h5>Task Master</h5>
+</div>
+
+
+<div class="app-content">
+    <p>
+        {% if task_list %}
+        <ul>
+            {% for task in task_list %}
+            <div>
+                <br></br>
+                <h7>{{ task.task_todo }}</h7>
+                <br></br>
+                <input type="submit" value='Task Details' onclick="window.location.href='{% url 'todo:task_detail'  task.id %}';return false;">
+                
+                {% if task.owner == user %}
+                    <a href="{% url 'todo:task_delete' task.id %}">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    <br></br>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </ul>
+        {% else %}
+          <p>There are no tasks in the database.</p>
+        {% endif %}
+    </p>
+</div>
+
+{% endblock %}

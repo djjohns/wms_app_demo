@@ -1,0 +1,20 @@
+{% extends "base_menu.html" %}
+{% load django_bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block content %}
+  <h2>Sign up</h2>
+  {# Display a form #}
+  <form method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit">Sign up</button>
+    <input type="reset" value="Cancel" onclick="window.location.href='{% url 'home' %}';return false;">
+  </form>
+{% endblock %}

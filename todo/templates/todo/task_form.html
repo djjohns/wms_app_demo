@@ -1,0 +1,22 @@
+{% extends "base_menu.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="app-content">
+    <h5>Task Master</h5>
+</div>
+<div class="app-content">
+    <p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Submit">
+        <input type="submit" value="Cancel" onclick="window.location.href='{% url 'todo:all' %}';return false;">
+    </form>
+    </p>
+</div>
+
+<div class="app-content">
+    <input type="submit" value="Veiw all Tasks" onclick="window.location.href='{% url 'todo:all' %}';return false;">
+</div>
+
+{% endblock %}

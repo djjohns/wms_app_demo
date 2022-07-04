@@ -1,0 +1,23 @@
+{% extends "base_menu.html" %}
+{% block content %}
+
+<div class="app-content">
+  <h5>Task Master</h5>
+</div>
+
+<div class="app-content">
+  <h5>Delete {{ task.task_todo }}?</h5>
+</div>
+
+<div class="app-content">
+  {% if task.owner == user %}
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Yes, delete.">
+
+      <input type="submit" onclick="window.location='{% url 'todo:all' %}' ; return false;" value="Cancel">
+    </form>
+  {% endif %}
+</div>
+
+{% endblock %}

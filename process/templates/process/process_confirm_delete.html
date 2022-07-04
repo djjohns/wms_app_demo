@@ -1,0 +1,11 @@
+process{% extends "base_menu.html" %}
+{% block content %}
+<h1>Delete Order Number</h1>
+
+<p>Are you sure you want to delete the order_number: {{ process }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete.">
+</form>
+{% endblock %}

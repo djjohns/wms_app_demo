@@ -1,0 +1,38 @@
+{% extends "base_menu.html" %}
+{% load humanize %} <!-- https://docs.djangoproject.com/en/3.0/ref/contrib/humanize -->
+{% block content %}
+
+<div class="app-content">
+{% if task.owner == user %}
+<input type="submit" value="Edit" onclick="window.location.href='{% url 'todo:task_update' task.id %}';return false;">
+<input type="submit" value="Delete" onclick="window.location.href='{% url 'todo:task_delete' task.id %}';return false;">
+{% endif %}
+</div>
+
+<div >
+<h2>{{ task.task_todo }}</h2>
+
+<p>
+    <h7>Task belongs to:</h7>
+    {{ task.owner }}
+</p>
+
+<p>
+<h7>Is task accomplished?</h7>
+    {{ task.task_accomplished }}
+</p>
+<h7>Task Dependencies:</h7>
+<p>
+{{ task.task_dependencies }}
+</p>
+
+<h7>Task last updated:</h7>
+<p>
+({{ task.updated_at|naturaltime }})
+</p>
+</div>
+
+<input type="submit" value="Task Master" onclick="window.location.href='{% url 'todo:all' %}';return false;">
+
+
+{% endblock %}

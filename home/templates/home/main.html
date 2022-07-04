@@ -1,0 +1,23 @@
+{% extends "base_menu.html" %}
+{% load static %}
+{% block content %}
+
+<div class="app-content">
+  <h5>This web app demo was made by David Johns</h5>
+  <h6>
+    <p>
+      This application leverages django, rest, python, and bootstrap to present users with a form to interface with a database. Allowing our team to build dynamic, responsive, and scalable web applications quickly with a enphasis on security.
+    </p>
+  </h6>
+  <p>
+    Here at Red Tek Industries, we strive to offer dynamic solutions to fit our client's needs. We aim to offer an off the shelf Warehouse Management System to fit any need. Whether building a new system or upgrading legacy systems into the 21st century, our team will build, code, and network a custom built web app to give your operations the tools they need. Automated reports and anayltic dashboards can be built and hosted in one place to keep your team focused on your KPIs.
+    Signup through the login page to demo the web app.
+  </p>
+
+  <div class="app-content-button">
+    <input type="submit" value="Login" onclick="window.location.href='{% url 'login' %}?next={% url 'home' %}';return false;">
+  </div>
+</div>
+
+
+{% endblock %}

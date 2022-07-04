@@ -1,0 +1,37 @@
+{% block content %}
+  <h2>Sign up</h2>
+  {# Display a form #}
+  <form method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit">Sign up</button>
+    <input type="reset" value="Cancel" onclick="window.location.href='{% url 'home' %}';return false;">
+  </form>
+{% endblock %}
+
+
+{% block content %}
+  <h5>Sign up</h5>
+  <form method="post" class="form">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-6">
+        {{ form.first_name|as_crispy_field }}
+      </div>
+      <div class="col-6">
+        {{ form.last_name|as_crispy_field }}
+      </div>
+    </div>
+    {{ form.username|as_crispy_field }}
+    <div class="row">
+      <div class="col-6">
+        {{ form.password1|as_crispy_field }}
+      </div>
+      <div class="col-6">
+        {{ form.password2|as_crispy_field }}
+      </div>
+    </div>
+    <button type="submit">Sign up</button>
+    <input type="reset" value="Cancel" onclick="window.location.href='{% url 'home' %}';return false;">
+  </form>
+{% endblock %}
